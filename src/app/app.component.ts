@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentiService } from './authenti.service';
+import { ProposerGroupeService } from './proposer-groupe.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { AuthentiService } from './authenti.service';
 export class AppComponent implements OnInit{
   title = 'mon-premier-projet';
 
-constructor (private authService:AuthentiService){}
+constructor (private authService:AuthentiService ){}
 
   ngOnInit() :void{
     this.authService.loadToken();
@@ -29,5 +30,8 @@ isEnsigniant(){
         return this.authService.LogOut();
        
       }
+      // getGrp(){
+      //   return this.proposerGroupeService.GetGrp();
+      // }
     }
    
