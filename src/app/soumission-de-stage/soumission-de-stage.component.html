@@ -1,0 +1,42 @@
+
+
+<div>
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7">
+                <h6 class="" >Summission De Stage</h6>
+            
+    
+              <div class="card-body">
+                <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+                  <div class="row">
+                    <div class="col-md-10">
+                      <label class=" text-success">Titre Du Stage </label>
+                      <input type="text" class="form-control" name="username" ngModel>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <label class=" text-success"> Nom de L'Entreprice </label>
+                      <input type="text" class="form-control" name="password" ngModel>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <label class=" text-success"> Group ID </label>
+                      <input type="text" class="form-control" name="password" ngModel>
+                    </div>
+                  </div>
+                  <br>
+                  <button type="submit" class="btn btn-success">Ajouter</button>
+                  <div class="clearfix"></div>
+                </form>
+              </div>
+            </div>
+        
+        </div>
+      </div>
+</div>

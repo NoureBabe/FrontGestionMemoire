@@ -1,0 +1,57 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <!-- <div class="card-header card-header-success"> -->
+            <h6 class="btn btn-success" >Nouveau Sujet</h6>
+  
+            <!-- </div> -->
+            <div class="card-body">
+              <form #f="ngForm" (ngSubmit)="onsaveSujetGrp(f.value)">
+                <div class="form-group row">
+                  <label class="col-md-4 col-form-label  text-success">Titre du Sujet </label><div class="col-md-8" ><input type="text" class="form-control" name="titreSujet" ngModel>
+                  </div>
+                </div>
+                  <div class="form-group row">
+                    <label class="col-md-4 col-form-label  text-success"> Groupe Propose le Sujet </label><div class="col-md-8" >
+                    <select id="esg" name="groupe" title="propoe"
+                      [(ngModel)]="esg" class="form-control" *ngIf="groupes">
+                    <option *ngFor ="let e  of groupes._embedded.groupes" [value]="e.idGrp">{{e.idGrp}}</option>
+                    </select>
+                  </div>
+            
+                </div> 
+                <div class="form-group row">
+                  <label class="col-md-4 col-form-label  text-success">Description: </label><div class="col-md-8" ><textarea type="text"  id ="textarea"class="form-control" name="description" ngModel></textarea></div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-md-4 col-form-label  text-success"> Entreprise d'acceuil: </label><div class="col-md-8" >
+                  <select class="form-control" id="ent" name="entreprise" title="propoe"
+                    [(ngModel)]="ent"  *ngIf="entreprises">
+                  <option *ngFor ="let e  of entreprises._embedded.entreprises" [ngValue]="e.nomEntreprice">{{e.nomEntreprice}}</option>
+                  </select>
+                </div>
+             
+              </div>
+             
+              <div class="form-group row">
+                <label class="col-md-4 col-form-label  text-success">Competances requises:</label><div class="col-md-8" ><select id="ent" name="CompetancesRequises" title="propoe"
+                  [(ngModel)]="comp" class="form-control" >
+                <option>Python</option>
+                <option>Spring Boot </option>
+                <option>Angular </option>
+                <option value="autre">autre <input type="text" class="form-control" name="j" ngModel></option>
+                </select></div>
+              </div>
+                <br>
+                <button type="submit" class="btn btn-success">save</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,80 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <!-- <div class="card-header card-header-success"> -->
+            <h6 class="btn btn-success" >Nouveau Planning</h6>
+  
+            <!-- </div> -->
+            <div class="card-body">
+              <form #f="ngForm" (ngSubmit)="onsaveSalleetplanning(f.value)">
+                <div class="row">
+                  <div class="col-md-10">
+                    <label class=" text-success">date_Planning </label><input type="date" class="form-control" name="date_Planning" ngModel>
+                  </div>
+                
+
+
+
+
+                </div>
+                <div class="row">
+                  <div class="col-md-10">
+                    <label class=" text-success"> groupe </label>
+                    <select id="grp_propose" name="grp_propose" title="propoe"
+                      [(ngModel)]="grppropose" class="form-control" *ngIf="groupes">
+                    <option *ngFor ="let g  of groupes._embedded.groupes" [ngValue]="g.idGrp">{{g.idGrp}}</option>
+                    </select>
+                  </div>
+  
+                </div> 
+                
+                
+                <div class="row">
+                  <div class="col-md-10">
+                    <label class=" text-success"> salle_Planning </label>
+                   <!-- <input type="text" class="form-control" name="salle" ngModel>-->
+
+                    <select name="salle_planning" id="salle"
+                    [(ngModel)]="salle" class="form-control" >
+                    <option *ngFor="let ss of sals" [value]="ss.id">
+                      {{ss.name}}
+
+                    </option>
+
+                  </select>
+
+                    
+                  </div>
+  
+                </div> 
+                <div class="row">
+                  <div class="col-md-10">
+                    <label class=" text-success"> Jury</label>
+                   <!-- <input type="text" class="form-control" name="salle" ngModel>-->
+
+                    <select name="Jury" id="jury"
+                    [(ngModel)]="jury" class="form-control" >
+                    <option *ngFor="let jj of jurys" [value]="jj.id">
+                      {{ss.name}}
+
+                    </option>
+
+                  </select>
+
+                    
+                  </div>
+  
+                </div> 
+                
+                <br>
+                <button type="submit" class="btn btn-success">save</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
