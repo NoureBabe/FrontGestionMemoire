@@ -8,7 +8,7 @@ import { AuthentiService } from './authenti.service';
   providedIn: 'root'
 })
 export class Proposerjury{
-    public host2:string="http://localhost:8080";
+    public host2:string="http://localhost:8024";
 
   public Mytoken='Authorization';
   url="/jury"
@@ -27,21 +27,21 @@ export class Proposerjury{
     url2=this.host2+url2;
      let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
        return this.http.get(url2,{headers: headers});
-  
+
   //PostPlanningt(url,data){
     //url=this.host2+url;
      //let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
        //return this.http.post(url,data,{headers: headers});
    }
-  
+
   // loadToken(){
-  
+
   //   this.jwToken=localStorage.getItem('token');
-  
+
   // }
    getRessource(url){
      return this.http.get(url);
-  
+
    }
    deletRessource(url){
      let headers=new HttpHeaders({'Authorization': 'Bearer'+ this.authentiService.jwToken})

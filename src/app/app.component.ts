@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentiService } from './authenti.service';
 import { ProposerGroupeService } from './proposer-groupe.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { ProposerGroupeService } from './proposer-groupe.service';
 export class AppComponent implements OnInit{
   title = 'mon-premier-projet';
 
-constructor (private authService:AuthentiService ){}
+constructor (private authService:AuthentiService,private router:Router ){}
 
   ngOnInit() :void{
     this.authService.loadToken();
@@ -23,11 +24,21 @@ isEnsigniant(){
       return this.authService.isEtudiant();
 
       }
-      isAuthenticated(){
+   isCordinateur(){
+        return this.authService.isCordinateur();
+  
+        }
+  isAdmin(){
+          return this.authService.isAdmin();
+        }
+    isAuthenticated(){
         return this.authService.isAuthenticated;
       }
+    
       LogOut(){
-        return this.authService.LogOut();
+        this.authService.LogOut();
+        this.authService.tokenRefreshCheck= false;
+        this.router.navigateByUrl("/");
        
       }
       // getGrp(){

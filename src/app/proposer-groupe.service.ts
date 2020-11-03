@@ -9,11 +9,12 @@ import { AuthentiService } from './authenti.service';
 })
 export class ProposerGroupeService {
 
-  public host2:string="http://localhost:8080";
+  public host2:string="http://localhost:8024";
 
   public Mytoken='Authorization';
-  url="/groupes"
- 
+  url="/entreprises"
+url2="/sujets?projection=s1"
+url3="/groupes"
 constructor(private http:HttpClient, private authentiService:AuthentiService) { }
 //public authentiService:AuthentiService;
 GetGrp(url){
@@ -21,7 +22,32 @@ GetGrp(url){
   let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
     return this.http.get(url,{headers: headers});
 }
+getSujetbykeyword(mc:string){
+  //  url=this.host2+url3;
+    let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
+      return this.http.get(this.host2+"/sujets/search/BytitreSujetContains?mc="+mc,{headers: headers});
+  }
 GetSujet(url){
+  url=this.host2+url;
+   let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
+     return this.http.get(url,{headers: headers});
+ }
+ GetEtudiant(url){
+  url=this.host2+url;
+   let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
+     return this.http.get(url,{headers: headers});
+ }
+ getRessource(url){
+  let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
+  return this.http.get(url,{headers: headers});
+
+ }
+ GetPrenom(url){
+  url=this.host2+url;
+   let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
+     return this.http.get(url,{headers: headers});
+ }
+ GetGrpProposeSujet(url){
   url=this.host2+url;
    let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
      return this.http.get(url,{headers: headers});
@@ -37,8 +63,28 @@ PostSujet(url,data){
 //   this.jwToken=localStorage.getItem('token');
 
 // }
- getRessource(url){
-   return this.http.get(url);
+
+getGroupe(matricule: string){
+  let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
+  return this.http.get(this.host2 +  '/GroupeEtuduant/' + matricule, {headers: headers})
+}
+ deletRessource(url){
+  let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
+  return this.http.delete(url,{headers: headers});
+
+}
+updateRessource(url,data){
+  let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
+  return this.http.put(url,data,{headers: headers});
 
  }
+ GetSujetpage(page:number,size:number){
+  // url=this.host2+url;
+   let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
+     return this.http.get(this.host2 +"/sujets?projection=s1?page="+page+"&size="+size,{headers: headers});
+ }
+ DemandeEncadrantSujet(titreSujet: string, nomEnseigniant:string){
+  let headers=new  HttpHeaders({'Authorization':'Bearer '+this.authentiService.jwToken})
+  return this.http.get(this.host2+'/DemandeEncadrantSujet/'+titreSujet+'/'+nomEnseigniant, {headers: headers})
+}
 }

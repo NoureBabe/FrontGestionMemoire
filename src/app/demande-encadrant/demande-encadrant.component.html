@@ -1,0 +1,111 @@
+
+  
+            
+  <!-- sujetEtudiant -->
+
+    <div class="col-md-12">
+        <div class="card">
+      
+          <h6 class="btn btn-success">Listes des demendes d'encadrent</h6>
+    <div class="container-fluid">
+      <div class="row">
+        
+        
+            <div class="card-body">
+              <!-- <h3 style="color: seagreen;"> -->
+              <!-- <div *ngIf="sujets !== null"> Pas d'enregistrement</div></h3> -->
+              <div class="table-responsive" >
+                  
+                  <table class="table table-striped table-bordered table-sm"cellpadding="3" cellspacing="5" rules="cols" *ngIf="sujets">
+                      <thead class=" text-success">
+                          <!-- <th>
+                              ID
+                            </th>
+                          <th>
+                              Année Universitaire
+                            </th> -->
+                      
+                      <th>
+                          filliére
+                        </th>
+                        <th>
+                          titre
+                        </th>
+                      <th >
+                          Entreprise d'cceuill 
+                      </th>
+      
+                      <th >
+                          Proposé Par
+                      </th>
+                     
+                     
+                      
+                      <th>
+                          Refuse
+                        </th>
+                        <th>
+                            Accepte
+                          </th>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor= "let  s of sujets._embedded.sujets" >
+                          <!-- <td *ngIf="s.groupe !=null && s.demendeEncadrant == false && s.encad_acadimique.nomEnseigniant == user"> 
+                              {{s.id}}
+                            </td>
+                            <td *ngIf="s.groupe !=null && s.demendeEncadrant == false && s.encad_acadimique.nomEnseigniant == user" > 
+                              {{s.paramatrageAnnee.anneeEncours}}
+                            </td>
+                             -->
+                            <td *ngIf="s.groupe !=null && s.demendeEncadrant == false && s.encad_acadimique.nomEnseigniant == user">
+                              {{s.filliere.nomfilliere}}
+                            </td>
+                      
+                        <td *ngIf="s.groupe !=null &&  s.demendeEncadrant == false && s.encad_acadimique.nomEnseigniant == user"> 
+                          {{s.titreSujet}}
+                        </td>
+                       
+                      
+                        <td *ngIf="s.groupe !=null && s.demendeEncadrant == false && s.encad_acadimique.nomEnseigniant == user">
+                          {{s.entreprise.nomEntreprice}}
+                          <!-- {{s.grp_propose.idGrp}}  -->
+                       </td>
+                        
+                        <td *ngIf="s.groupe !=null && s.demendeEncadrant == false && s.encad_acadimique.nomEnseigniant == user">
+                          <!-- {{s.entreprice_acceuil}} -->
+                           {{s.groupe.idGrp}} 
+                       </td>
+                    
+                       
+                       
+                        <td  *ngIf="s.groupe !=null && s.demendeEncadrant == false && s.encad_acadimique.nomEnseigniant == user">
+                          <button (click)="RefuserDemendeEncadrant(s)">
+                              <img src="assets/menu/images/ref.jpg" width="30">
+          
+                              
+                          </button>
+                        </td>
+                        <td  *ngIf="s.groupe !=null && s.demendeEncadrant == false && s.encad_acadimique.nomEnseigniant == user">
+                            <button (click)="ValiderDemendeEncadrant(s)">
+                                <img src="assets/menu/images/valid.jpg" width="30">
+            
+                                
+                            </button>
+                          </td>
+                      </tr>
+                      <tr></tr>
+      
+      
+      
+                    </tbody>
+                  </table>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+         
+    
+    
+  
+  

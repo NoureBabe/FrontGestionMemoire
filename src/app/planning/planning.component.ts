@@ -5,6 +5,7 @@ import { salle } from '../models/salle.models';
 import { jury} from '../models/Jury.models'
 ;
 import { Router } from '@angular/router';
+import { SujetEnseignatService } from '../sujet-enseignat.service';
 //import { Proposerjury } from '../proposer-jury.service';
 @Component({
   selector: 'app-planning',
@@ -55,7 +56,7 @@ export class PlanningComponent implements OnInit {
    
   ];
 
-   constructor(private PropositionGroupeplannigService: PropositionGroupeplannigService,private router: Router) { }
+   constructor(private PropositionGroupeplannigService: PropositionGroupeplannigService,private router: Router,private sujetEnseignatService:SujetEnseignatService) { }
 
   ngOnInit() {
     this.PropositionGroupeplannigService.getGroupe(this.PropositionGroupeplannigService.url)
@@ -87,6 +88,17 @@ export class PlanningComponent implements OnInit {
      //  console.log(err)
      //})
     //}
+    onsaveSujetEnseigniant(data){
+      // console.log(data);
+      let url =this.sujetEnseignatService.host2+this.url2
+      this.sujetEnseignatService.PostSujet(this.url2,data)
+      .subscribe(data=>{
+        
+      },err=>{
+        console.log(err)
+      })
+      this.router.navigateByUrl("/ListeproposeEnseignat");
+     }
      GetSalle(){
        return this.PropositionGroupeplannigService.getGroupe(this.PropositionGroupeplannigService.url)
      }

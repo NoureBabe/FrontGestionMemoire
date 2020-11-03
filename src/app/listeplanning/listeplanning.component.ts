@@ -1,6 +1,7 @@
 
   import { Component, OnInit } from '@angular/core';
   import { ProposerGroupeService } from '../proposer-groupe.service';
+import { AuthentiService } from '../authenti.service';
   
   @Component({
     selector: 'app-listeplanning',
@@ -17,7 +18,7 @@
    timepropose1 =new Date('2021-07-17');
      a=new Date('2020-07-17')
   url6="/paramatragePeriodeProposes";
-    constructor( private proposerGroupeService:ProposerGroupeService) { }
+    constructor( private proposerGroupeService:ProposerGroupeService,private authService:AuthentiService ) { }
     onsaveSujetEnseigniant
     ngOnInit() {
   
@@ -64,6 +65,10 @@
           console.log(err);
         });
     }
+    isCordinateur(){
+      return this.authService.isCordinateur();
+
+      }
   
     }
   

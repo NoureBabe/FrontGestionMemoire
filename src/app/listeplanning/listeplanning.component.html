@@ -8,7 +8,7 @@
             <!-- <div class="card-header card-header-success"> -->
   
             <div class="text-right mb-9" >
-                        <a routerLink="/planning" > <h6 class="card-title " class=" text-success"> nouveau_planning de soutenance</h6> </a>
+                        <a routerLink="/planning"   *ngIf="isCordinateur()"> <h6 class="card-title " class=" text-success"> nouveau_planning de soutenance</h6> </a>
             </div>
             <!-- <div class="text-right  mb-9"   > <label for=""> <h6 class="card-title " class=" text-danger">periode  Propose Sujet Terminer </h6></label></div> -->
     
@@ -44,7 +44,7 @@
                   </th>
                   
                   <th>
-                      suprim
+                      supprimer
                     </th>
   
                   </thead>
@@ -68,7 +68,7 @@
                     </td>
                     
                      <td *ngIf="s.groupe !=null">
-                       Dr.Moussa Dr.Cheikh et Dr.Ahmed
+                       Dr.Moussa Dr.Cheikh
                     </td>
                     
                     
